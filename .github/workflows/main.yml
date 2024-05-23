@@ -25,9 +25,4 @@ jobs:
 
       - name: Run tests
         run: |
-          python -m unittest discover -s tests 
-        working-directory: .
-
-      - name: Build Docker image
-        run: docker build -t snake_game:latest .
-        working-directory: .
+          python -m unittest discover -s Snake Game\test -p "*.py"
