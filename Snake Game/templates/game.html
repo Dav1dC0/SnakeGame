@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        canvas { display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="{{ board_size * 32 }}" height="{{ board_size * 24 }}"></canvas>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+    <script>
+        let nickname = "{{ nickname }}";
+        let board_size = "{{ board_size }}";
+        function saveScore(score) {
+            $.ajax({
+                url: "{{ url_for('save_score') }}",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ nickname: nickname, score: score, board_size: board_size }),
+                success: function(response) {
+                    console.log("Score saved successfully");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game Setup</title>
+</head>
+<body>
+    <h1>Snake Game Setup</h1>
+    <form action="{{ url_for('start_game') }}" method="POST">
+        <label for="nickname">Enter Nickname:</label>
+        <input type="text" id="nickname" name="nickname" required>
+        <label for="board_size">Enter Board Size (5-25):</label>
+        <input type="number" id="board_size" name="board_size" min="5" max="25" required>
+        <button type="submit">Play</button>
+    </form>
+</body>
+</html>

@@ -11,13 +11,13 @@ class GameGUI:
         self.FPS = 10
 
     def draw_game(self, snake, food, score):
-        self.win.fill((0, 0, 0))
+        self.win.fill((0, 255, 0))
         for segment in snake.body:
-            pygame.draw.rect(self.win, (0, 255, 0), pygame.Rect(segment[0], segment[1], snake.cell_size, snake.cell_size))
+            pygame.draw.rect(self.win, (255, 255, 0), pygame.Rect(segment[0], segment[1], snake.cell_size, snake.cell_size))
         pygame.draw.rect(self.win, (255, 0, 0), pygame.Rect(food.position[0], food.position[1], snake.cell_size, snake.cell_size))
 
         font = pygame.font.Font(None, 36)
-        score_text = font.render(f"Score: {score}", True, (255, 255, 255))
+        score_text = font.render(f"Score: {score}", True, (0, 0, 0))
         self.win.blit(score_text, (10, 10))
         pygame.display.update()
 
